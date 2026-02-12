@@ -11,8 +11,8 @@ USE `takalo_takalo`;
 -- ========================================
 CREATE TABLE `users` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
-  `email` VARCHAR(255) NOT NULL UNIQUE,
-  `password` VARCHAR(255) NOT NULL,
+  `email` VARCHAR(191) NOT NULL UNIQUE,
+  `password` VARCHAR(191) NOT NULL,
   `nom` VARCHAR(100) NOT NULL,
   `prenom` VARCHAR(100),
   `telephone` VARCHAR(20),
@@ -44,7 +44,7 @@ CREATE TABLE `objets` (
   `id` INT UNSIGNED NOT NULL AUTO_INCREMENT PRIMARY KEY,
   `user_id` INT UNSIGNED NOT NULL,
   `category_id` INT UNSIGNED NOT NULL,
-  `titre` VARCHAR(255) NOT NULL,
+  `titre` VARCHAR(191) NOT NULL,
   `description` TEXT NOT NULL,
   `prix_estimatif` DECIMAL(10, 2),
   `etat` ENUM('neuf', 'tres_bon', 'bon', 'acceptable', 'usage') DEFAULT 'bon',
@@ -108,7 +108,7 @@ CREATE TABLE `echanges` (
   `user1_id` INT UNSIGNED NOT NULL,
   `user2_id` INT UNSIGNED NOT NULL,
   `date_echange` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
-  `lieu_echange` VARCHAR(255),
+  `lieu_echange` VARCHAR(191),
   `commentaire` TEXT,
   `created_at` TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
   FOREIGN KEY (`proposition_id`) REFERENCES `propositions`(`id`) ON DELETE CASCADE,
